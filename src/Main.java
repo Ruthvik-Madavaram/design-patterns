@@ -1,4 +1,7 @@
 import builder.Payslip;
+import factory.Order;
+import factory.OrderFactory;
+
 import singleton.Singleton;
 
 public class Main {
@@ -17,5 +20,19 @@ public class Main {
                 .setNetSalary(55000)
                 .build();
         System.out.println(payslip);
+
+        try {
+            //Factory Design Pattern
+            Order order1 = OrderFactory.createOrder("Food");
+            order1.processOrder();
+
+            Order order2 = OrderFactory.createOrder("Clothing");
+            order2.processOrder();
+
+            Order order3 = OrderFactory.createOrder("Electronics");
+            order3.processOrder();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
